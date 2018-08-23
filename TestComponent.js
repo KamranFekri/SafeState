@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, Button, View, Modal } from 'react-native';
-import SafeState from './SafeState';
+import StateHelper from './StateHelper';
 
 export default class TestComponent extends React.Component {
 
@@ -11,7 +11,7 @@ export default class TestComponent extends React.Component {
             x: 1
         }
 
-        this.setSafeState = SafeState(this)
+        this.setMountedState = StateHelper(this)
     }
 
     componentDidMountSafely(){
@@ -19,14 +19,14 @@ export default class TestComponent extends React.Component {
     }
 
     getData(){
-        setTimeout(() => this.setSafeState({x: 100}), 5000)
+        setTimeout(() => this.setMountedState({x: 100}), 5000)
     }
 
     render(){
         return(
             <View style={styles.container}>
                 <Text>{this.state.x}</Text>
-                <Button title={'SetSafeState'} onPress={() => this.setSafeState({x: this.state.x + 1}, () => console.log('callback'))}/>
+                <Button title={'setMountedState'} onPress={() => this.setMountedState({x: this.state.x + 1}, () => console.log('callback'))}/>
             </View>
         )
     }
