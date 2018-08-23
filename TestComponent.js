@@ -26,7 +26,7 @@ export default class TestComponent extends React.Component {
         return(
             <View style={styles.container}>
                 <Text>{this.state.x}</Text>
-                <Button title={'SetSafeState'} onPress={() => this.setSafeState({x: this.state.x + 1})}/>
+                <Button title={'SetSafeState'} onPress={() => this.setSafeState({x: this.state.x + 1}, () => console.log('callback'))}/>
             </View>
         )
     }

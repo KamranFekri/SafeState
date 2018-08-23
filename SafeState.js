@@ -25,9 +25,9 @@ export default SafeState = (instance) => {
     }
 
     //returning wrapped "setState" to be used
-    return (newState) => {
+    return (newState, callback) => {
         if(areComponentsMounted){
-            instance.setState(newState)
+            instance.setState(newState, callback)
         } else {
             console.log('STATE MANIPULATION BLOCKED: ' + instance.constructor.name)
         }
