@@ -2,7 +2,7 @@
  * wrapper around setState to prevent setting state on unmounted components
  * @param {this} instance 
  */
-export default SafeState = (instance) => {
+export default StateHelper = (instance) => {
 
     areComponentsMounted = false
     
@@ -32,5 +32,4 @@ export default SafeState = (instance) => {
             console.log('STATE MANIPULATION BLOCKED: ' + instance.constructor.name)
         }
     }
-
 }
