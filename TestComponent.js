@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, Button, View, Modal } from 'react-native';
-import StateHelper from './StateHelper';
+import SafeState from 'safe-state';
 
 export default class TestComponent extends React.Component {
 
@@ -11,7 +11,7 @@ export default class TestComponent extends React.Component {
             x: 1
         }
 
-        this.setMountedState = StateHelper(this)
+        this.setMountedState = SafeState(this)
     }
 
     componentDidMountSafely(){
